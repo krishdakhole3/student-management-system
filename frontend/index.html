@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div>
+                <p class="eyebrow">STUDENT PORTAL</p>
+                <h1>Student Management System</h1>
+                <p class="subtitle">
+                    Manage student records in one place.
+                </p>
+            </div>
+
+            <div class="header-badge">SMS</div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="stats">
+            <div class="stat-card">
+                <span>Total Students</span>
+                <strong id="totalStudents">0</strong>
+            </div>
+
+            <div class="stat-card">
+                <span>Available Courses</span>
+                <strong id="totalCourses">0</strong>
+            </div>
+
+            <div class="stat-card">
+                <span>Current Status</span>
+                <strong class="status-text">Connected</strong>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="section-heading">
+                <div>
+                    <h2 id="formTitle">Add New Student</h2>
+                    <p>Enter the student's information below.</p>
+                </div>
+            </div>
+
+            <form id="studentForm">
+                <input type="hidden" id="editId">
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="studentId">Student ID</label>
+                        <input
+                            type="text"
+                            id="studentId"
+                            placeholder="e.g. ST101"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input
+                            type="text"
+                            id="name"
+                            placeholder="Enter full name"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input
+                            type="email"
+                            id="email"
+                            placeholder="student@example.com"
+                            required
+                        >
+                    </div>
+
+                    <div class="form-group">
+                        <label for="course">Course</label>
+                        <select id="course" required>
+                            <option value="">Select course</option>
+                            <option value="CSE">Computer Science (CSE)</option>
+                            <option value="IT">Information Technology (IT)</option>
+                            <option value="ENTC">Electronics (ENTC)</option>
+                            <option value="Mechanical">Mechanical</option>
+                            <option value="Civil">Civil Engineering</option>
+                            <option value="Electrical">Electrical Engineering</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="semester">Semester</label>
+                        <select id="semester" required>
+                            <option value="">Select semester</option>
+                            <option value="1">Semester 1</option>
+                            <option value="2">Semester 2</option>
+                            <option value="3">Semester 3</option>
+                            <option value="4">Semester 4</option>
+                            <option value="5">Semester 5</option>
+                            <option value="6">Semester 6</option>
+                            <option value="7">Semester 7</option>
+                            <option value="8">Semester 8</option>
+                            <option value="9">Semester 9</option>
+                            <option value="10">Semester 10</option>
+                            <option value="11">Semester 11</option>
+                            <option value="12">Semester 12</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" id="submitButton" class="btn btn-primary">
+                        Add Student
+                    </button>
+
+                    <button type="button" id="cancelEdit" class="btn btn-secondary" hidden>
+                        Cancel Edit
+                    </button>
+
+                    <button type="reset" id="resetButton" class="btn btn-secondary">
+                        Clear Form
+                    </button>
+                </div>
+            </form>
+
+            <div id="message" class="message" role="status" aria-live="polite"></div>
+        </section>
+
+        <section class="panel">
+            <div class="records-heading">
+                <div>
+                    <h2>Student Records</h2>
+                    <p>View, search, edit, and delete student details.</p>
+                </div>
+
+                <input
+                    type="search"
+                    id="searchInput"
+                    class="search-input"
+                    placeholder="Search students..."
+                    aria-label="Search students"
+                >
+            </div>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Student ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Course</th>
+                            <th>Semester</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="studentsTable">
+                        <tr>
+                            <td colspan="6" class="empty-state">
+                                Loading student records...
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <footer>
+            <p>Student Management System | Three-Tier Web Application</p>
+            <p>Frontend · REST API · MongoDB Atlas</p>
+        </footer>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
