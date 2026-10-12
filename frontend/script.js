@@ -4,7 +4,7 @@
 // ==========================================
 
 // Local backend API address
-const API_URL = "https://student-management-api-8tlb.onrender.com";
+const API_URL = "https://student-management-api-8t1b.onrender.com/api/students";
 
 // HTML elements
 const studentForm = document.getElementById("studentForm");
